@@ -19,7 +19,7 @@ services:
     depends_on:
       - mysql
     ports:
-      - 8080:80
+      - ${PS_PORT}:80
     volumes:
       - "prestashop:/var/www/"
     networks:
@@ -33,7 +33,7 @@ services:
       - DB_PASSWD=${DB_PASSWD}
       - DB_NAME=${DB_NAME}
       - PS_FOLDER_ADMIN=${PS_FOLDER_ADMIN}
-      - PS_DOMAIN=${PS_DOMAIN}:8083
+      - PS_DOMAIN=${PS_DOMAIN}:${PS_PORT}
       - PS_LANGUAGE=${PS_LANGUAGE}
       - PS_COUNTRY=${PS_COUNTRY}
       - PS_FOLDER_INSTALL=installed
